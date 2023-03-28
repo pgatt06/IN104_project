@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-FILE*file= fopen(data.txt,"rb");
+fichier = fopen("data.txt",r);
+
 
 //création des variables qu'on va récupérer dans data.txt
 int croisements;
