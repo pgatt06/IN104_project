@@ -8,4 +8,15 @@ fichier = fopen("data.txt",r);
 int croisements;
 int piste; 
 
-fscanf(fichier,"%d %d",&croisements,&piste);
+fscanf(file,"%d %d",&croisements,&piste);
+
+//on ne peut pas avoir plus de croisements que de pistes 
+if (croisements>piste)
+{
+    printf("error\n");
+}
+
+if (piste==0)
+{
+    printf("error\n");
+}
