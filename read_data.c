@@ -11,6 +11,9 @@ if (fichier==NULL )
 {
     printf("error\n");
 }
+FILE * fichier = fopen("data.txt","r");
+
+
 //création des variables qu'on va récupérer dans data.txt
 int croisements;
 int piste; 
