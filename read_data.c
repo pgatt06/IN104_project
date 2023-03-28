@@ -1,10 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+void* malloc(size_t nombre_d_octets);
+void free(void* ptr);
+int main()
+{
+    fichier = fopen("data.txt",r);
 
-fichier = fopen("data.txt",r);
-
-
+if (fichier==NULL )
+{
+    printf("error\n");
+}
 //création des variables qu'on va récupérer dans data.txt
 int croisements;
 int piste; 
@@ -38,7 +44,7 @@ while (feof(fichier)!=0)
 
 tab=malloc(cpt*3*sizeof(int));
 
-
+}
 
 
 
