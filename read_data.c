@@ -55,6 +55,7 @@ for (int i=0; i<taille;++i)
         printf("%d",tab[i][j]);
     }
 }
+free(tab);
 
 }
 
