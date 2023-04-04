@@ -1,13 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void* malloc(size_t nombre_d_octets);
-void free(void* ptr);
-
-
-void read_data(char* fname)
+int read_data(char* fname, int** out)
 {
-    FILE*fichier = fopen(fname,"r");
+    FILE* fichier = fopen(fname,"r");
 
     if (fichier==NULL )
     {
@@ -39,41 +35,32 @@ int depart;
 int arrivee;
 int plaisir; 
 
-int taille=croisements+1;
-int** tab=malloc(taille*taille*sizeof(int));
+int taille= (int)(croisements+1);
+out = (int**)malloc(taille*taille*sizeof(int*));
 
-//par défaut on rempli le tableau par 0 MAIS CREER UNE NOUVELLE PISTE 
-
-for (int i=0; i<taille;++i)
-{
-    for (int j=0; j<taille;++j)
-    {
-        tab[i][j]=0;
-    }
+if (out==NULL){
+    printf("caca");
+    return(-1);
 }
+
+int counter = 0;
 while (feof(fichier)!=0)
 {
     fscanf(fichier,"%d %d %d",&depart,&arrivee,&plaisir);
-    tab[depart][arrivee]=plaisir;
+    *out[counter]=plaisir;
+    printf("%d",*out[counter]);
+    //modulo tu sais pour savoir si on est allés à un nouvelle ligne genre on arrive au bout de la ligne tmtc
+    counter++;
+
 }
-
-
-//print le tableau pour voir si c'est bien fait 
-for (int i=0; i<=taille;++i)
-{
-    for (int j=0; j<taille;++j)
-    {
-        printf("%d",tab[i][j]);
-    }
-    printf("\n");
-}
-
-free(tab);
-
+return 1;
 }
 
 
 int main(){
-    read_data("data.txt");
+
+    int** out = NULL;
+    read_data("data.txt",out);
+    free(out);
 }
 
