@@ -15,12 +15,13 @@ void read_data(char* fname)
     }
 
 
-
 //création des variables qu'on va récupérer dans data.txt
 int croisements;
 int piste; 
 
 fscanf(fichier,"%d %d",&croisements,&piste);
+
+printf("%d,%d \n",croisements,piste);
 
 //on ne peut pas avoir plus de croisements que de pistes 
 if (croisements>piste)
@@ -41,26 +42,36 @@ int plaisir;
 int taille=croisements+1;
 int** tab=malloc(taille*taille*sizeof(int));
 
+for (int i=0; i<taille;++i)
+{
+    for (int j=0; j<taille;++j)
+    {
+        tab[i][j]=0;
+    }
+}
 while (feof(fichier)!=0)
 {
     fscanf(fichier,"%d %d %d",&depart,&arrivee,&plaisir);
     tab[depart][arrivee]=plaisir;
 }
 
+
 //print le tableau pour voir si c'est bien fait 
-for (int i=0; i<taille;++i)
+for (int i=0; i<=(taille-1);++i)
 {
-    for (int j=0; j<taille;++j)
+    for (int j=0; j<=(taille-1);++j)
     {
         printf("%d",tab[i][j]);
     }
+    printf("\n");
 }
+
 free(tab);
 
 }
 
+
 int main(){
     read_data("data.txt");
 }
-
 
