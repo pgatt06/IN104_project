@@ -42,6 +42,8 @@ int plaisir;
 int taille=croisements+1;
 int** tab=malloc(taille*taille*sizeof(int));
 
+//par défaut on rempli le tableau par 0 MAIS CREER UNE NOUVELLE PISTE 
+
 for (int i=0; i<taille;++i)
 {
     for (int j=0; j<taille;++j)
@@ -57,9 +59,9 @@ while (feof(fichier)!=0)
 
 
 //print le tableau pour voir si c'est bien fait 
-for (int i=0; i<=(taille-1);++i)
+for (int i=0; i<=taille-1;++i)
 {
-    for (int j=0; j<=(taille-1);++j)
+    for (int j=0; j<taille-1;++j)
     {
         printf("%d",tab[i][j]);
     }
