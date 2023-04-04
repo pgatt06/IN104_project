@@ -5,9 +5,9 @@ void* malloc(size_t nombre_d_octets);
 void free(void* ptr);
 
 
-void read_data(char* data.txt)
+void read_data(char* fname)
 {
-    FILE*fichier = fopen("data.txt",r);
+    FILE*fichier = fopen(fname,"r");
 
     if (fichier==NULL )
     {
@@ -38,8 +38,8 @@ int depart;
 int arrivee;
 int plaisir; 
 
-int taille=croisemnts+1;
-int tab=malloc(taille*taille*sizeof(int));
+int taille=croisements+1;
+int** tab=malloc(taille*taille*sizeof(int));
 
 while (feof(fichier)!=0)
 {
@@ -52,15 +52,14 @@ for (int i=0; i<taille;++i)
 {
     for (int j=0; j<taille;++j)
     {
-        printf("%d",tab[i]tab[j]);
+        printf("%d",tab[i][j]);
     }
 }
 
-
-
-
-
 }
 
+int main(){
+    read_data("data.txt");
+}
 
 
