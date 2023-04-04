@@ -3,15 +3,17 @@
 
 void* malloc(size_t nombre_d_octets);
 void free(void* ptr);
-int main()
-{
-    fichier = fopen("data.txt",r);
 
-if (fichier==NULL )
+
+void read_data(char* data.txt)
 {
-    printf("error\n");
-}
-FILE * fichier = fopen("data.txt","r");
+    FILE*fichier = fopen("data.txt",r);
+
+    if (fichier==NULL )
+    {
+         printf("error\n");
+    }
+
 
 
 //création des variables qu'on va récupérer dans data.txt
@@ -32,20 +34,31 @@ if (piste==0)
 }
 
 //on parcourt les lignes du fichier pour recup les trajets
-int sommet;
+int depart;
 int arrivee;
 int plaisir; 
 
-int tab*;
+int taille=croisemnts+1;
+int tab=malloc(taille*taille*sizeof(int));
 
-int cpt=0;
 while (feof(fichier)!=0)
 {
-    fscanf(fichier,"%d %d %d",&sommet,&arrivee,&plaisir);
-    ++cpt;
+    fscanf(fichier,"%d %d %d",&depart,&arrivee,&plaisir);
+    tab[depart][arrivee]=plaisir;
 }
 
-tab=malloc(cpt*3*sizeof(int));
+//print le tableau pour voir si c'est bien fait 
+for (int i=0; i<taille;++i)
+{
+    for (int j=0; j<taille;++j)
+    {
+        printf("%d",tab[i]tab[j]);
+    }
+}
+
+
+
+
 
 }
 
