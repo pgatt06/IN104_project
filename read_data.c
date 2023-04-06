@@ -51,10 +51,9 @@ if (out==NULL){
 }
 //remplissage de la liste des pistes avec les plaisirs associées 
 
-/* à voir si on garde le fait de remplir par défaut les valeurs par des 0 : pb car création d'une piste inexistante
-for(int i =0;i<taille*taille;i++){*out[i]=0}
+//à voir si on garde le fait de remplir par défaut les valeurs par des 0 : pb car création d une piste inexistante
+for(int i =0;i<taille*taille;i++){*out[i]=0;}
 
-*/
 while (feof(fichier)!=0)
 {
     fscanf(fichier,"%d %d %d",&depart,&arrivee,&plaisir);
@@ -76,9 +75,13 @@ void voir(int** out,int taille){
 int main(){
 
     int** out = NULL;
+    int j =2;
+    int* i =&j;
+    int** test = &i;
     int taille =0;
+    voir(test,2*sizeof(int));
     read_data("data.txt",out,taille);
-    voir (out,taille);
+    voir (out,1);
     free(out);
 }
 
