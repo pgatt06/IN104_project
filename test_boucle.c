@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
+//fonction qui permet de déterminer si il existe un cycle entre le point de départ et le point ou l'on est (current) sans passer par le noeud parent
 int exist_chemin(int n,int tab[n*n],int start_node, int current_node, int parent_node,int visited[n]) {
     visited[current_node] = 1;
     for (int i = 0; i < n; i++) {
