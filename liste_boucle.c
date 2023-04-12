@@ -1,3 +1,5 @@
+/*Ce programme permet de récupérer tous les cycles d'un graphe grâce à sa matrice adjacente. */
+
 #include <stdio.h>
 #include <stdbool.h>
 
