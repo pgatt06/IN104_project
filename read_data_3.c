@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 
-// cré une structure
+//cré une structure
 struct data {int piste;int croisements;};
 
 
