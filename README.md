@@ -6,7 +6,9 @@ VERSION_1 :
 
 -test_boucle.c = permet de savoir si le graphe présente un cycle ou non (utile ? )
 
--liste_boucle.c = permet d'afficher une liste des sommets de chaque cycle TODO : il faut que la fonction retourne un tableau de sommets et non seulement les afficher TODO : calculer le plaisir total de chaque cycle.
+-liste_boucle.c = permet d'afficher une liste des sommets de chaque cycle 
+
+-liste_boucle_2.c = test pour retourner un tableau avec tous les cycles présents dans le cycle (NE FONCTIONNE PAS -segmentation fault)
 
 -sommet.c : fonction qui permet de retourner la liste des sommets adjacents à un sommet donné ainsi que la liste des plaisirs associés .
 
