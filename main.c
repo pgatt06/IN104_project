@@ -7,12 +7,12 @@
 int main(){
 
 //lecture des données du fichier data.txt
-    struct data i;
+    struct data i ={0,0};
     struct data k=read_info("data.txt",i);
 //création de la matrice adjacente
     int taille = k.croisements+1;
     int tab[(taille)*(taille)];
-    struct data j=remplir("data.txt",taille,tab,k);
+    i=remplir("data.txt",taille,tab,k);
 //affichage de la matrice adjacente
     voir(taille,tab);
 
