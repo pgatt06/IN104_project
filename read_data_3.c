@@ -24,7 +24,7 @@ struct data read_info(char* fname, struct data k)
 
 fscanf(fichier,"%d %d",&k.croisements,&k.piste);
 
-printf("%d,%d \n",k.croisements,k.piste);
+printf("le nombre de croisements est :%d et le nombre de pistes est :%d \n",k.croisements,k.piste);
 
 //on ne peut pas avoir plus de croisements que de pistes 
 if (k.croisements>k.piste)
@@ -77,7 +77,7 @@ void voir(int taille, int tab[(taille)*(taille)]){
     for(int i=0;i<=((taille)*(taille));i++){
         printf("%d ",tab[i]);
     //modulo le nombre de départ pour belle écriture en colonne et ligne comme un tableau
-        if(i%taille==0){printf("\n ");}
+        if((i+1)%(taille)==0){printf(" retour \n ");}
     }
 
 }
