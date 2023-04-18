@@ -134,7 +134,7 @@ int main() {
     trouver_cycles(n , tab, visite, sur_chemin,top,chemin,&resultat,&taille);
     printf("%d \n",taille);
     for(int i=0;i<taille;i++){
-        printf("%d ",(*resultat)[i].taille);
+        printf("%d\n ",resultat[i].taille);
     }
     return 0;
 }
