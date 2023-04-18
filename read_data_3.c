@@ -24,8 +24,9 @@ struct data read_info(char* fname, struct data k)
 
 fscanf(fichier,"%d %d",&k.croisements,&k.piste);
 
+printf("\n");
 printf("le nombre de croisements est :%d et le nombre de pistes est :%d \n",k.croisements,k.piste);
-
+printf("\n");
 //on ne peut pas avoir plus de croisements que de pistes 
 if (k.croisements>k.piste)
 {
@@ -74,10 +75,11 @@ struct data remplir(char* fname,int taille, int tab[(taille)*(taille)],struct da
 
 //permet d'afficher le tableau des plaisirs des pistes existantes 
 void voir(int taille, int tab[(taille)*(taille)]){
-    for(int i=0;i<=((taille)*(taille));i++){
+    printf("La matrice adjacente est :\n");
+    for(int i=0;i<((taille)*(taille));i++){
         printf("%d ",tab[i]);
     //modulo le nombre de départ pour belle écriture en colonne et ligne comme un tableau
-        if((i+1)%(taille)==0){printf(" retour \n ");}
+        if((i+1)%(taille)==0){printf("\n ");}
     }
 
 }
