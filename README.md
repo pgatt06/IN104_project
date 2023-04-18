@@ -6,7 +6,9 @@ VERSION_1 :
 
 -liste_boucle.c : affiche toutes les boucles présentes dans le graphe (elle affiche chaque sommet présent dans le cycle) - il faut encore rajouter un compteur pour déterminer le plaisir total ou créer une fonction qui a partir d’une boucle détermine le plaisir de la boucle. Dans la deuxième solution il faudra alors que la fonction liste_boucle.c renvoie un tableau a avec tous les sommets et ceci pour chaque boucle. 
 
--liste_boucle_2.c = test pour retourner un tableau avec tous les cycles présents dans le cycle (NE FONCTIONNE PAS -segmentation fault)
+-liste_boucle_2.c = test pour retourner un tableau avec tous les cycles présents dans le cycle ainsi que leur taille 
+
+_calcul_plaisir.C calcul le plaisir associé à un chemin donné 
 
 -test_boucle.c : permet de tester si le graphe possède une boucle ou non 
 
