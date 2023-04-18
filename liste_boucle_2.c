@@ -3,12 +3,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "liste_boucle_2.h"
 
-struct cycle
+/*struct cycle
 {
     int taille;
     int* tableau;
-};
+};*/
 //fonction qui permet de trouver un cycle (si il existe) à partir d'un noeud en particulier
 void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int top, int chemin [n], struct cycle** resultat, int* taille) {
 
@@ -104,9 +105,9 @@ void trouver_cycles(int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int to
     }
 }
 
-int main() {
+/*int main() {
     struct cycle* resultat; 
-    int taille = 0;
+    int taille_resultat = 0;
     int n=5;
     bool visite[n];
     bool sur_chemin[n];
@@ -131,10 +132,12 @@ int main() {
     
     
     // trouver les cycles affichage simple
-    trouver_cycles(n , tab, visite, sur_chemin,top,chemin,&resultat,&taille);
-    printf("%d \n",taille);
-    for(int i=0;i<taille;i++){
-        printf("%d\n ",resultat[i].taille);
+    trouver_cycles(n , tab, visite, sur_chemin,top,chemin,&resultat,&taille_resultat);
+    printf("Le graphe possède %d cycle.s. \n",taille_resultat);
+
+    for(int i=0;i<taille_resultat;i++){
+        printf("Le %d eme cycle est de taille :%d\n ",i, resultat[i].taille);
     }
+    
     return 0;
-}
+}*/
