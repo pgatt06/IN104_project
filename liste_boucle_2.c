@@ -73,17 +73,18 @@ void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemi
                 nouveau_cycle.tableau = tableau;
                 tmp=malloc(compteur_cycle*sizeof(struct cycle));
                 for(int k=0;k<compteur_cycle-1;k++){
-                        tmp[k]=*resultat[k];
+                        tmp[k]=(*resultat)[k];
                     }
                 
                 *resultat = malloc(compteur_cycle*sizeof(struct cycle));
-                
+                if(*resultat== NULL)
+                {printf("rr");}
                 //Copier tmp dans resultat
                 for(int k=0;k<compteur_cycle-1;k++){
-                        *resultat[k]=tmp[k];
+                        (*resultat)[k]=tmp[k];
                     }
 
-                *resultat[compteur_cycle-1] = nouveau_cycle;
+                (*resultat)[compteur_cycle-1] = nouveau_cycle;
                 *taille=compteur_cycle;
                 free(tmp);
             }
@@ -133,7 +134,7 @@ int main() {
     trouver_cycles(n , tab, visite, sur_chemin,top,chemin,&resultat,&taille);
     printf("%d \n",taille);
     for(int i=0;i<taille;i++){
-        printf("%d ",resultat[i].taille);
+        printf("%d ",(*resultat)[i].taille);
     }
     return 0;
 }
