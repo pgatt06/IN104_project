@@ -1,9 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "read_data_3.h"
+
+
 
 
 //cré une structure
-struct data {int piste;int croisements;};
+//struct data {int piste;int croisements;};
 
 
 struct data read_info(char* fname, struct data k)
@@ -79,7 +82,7 @@ void voir(int taille, int tab[(taille)*(taille)]){
 
 }
 
-int main(){
+/*int main(){
     struct data i;
     struct data k=read_info("data.txt",i);
     
@@ -90,4 +93,4 @@ int main(){
     voir(taille,tab);
 
     return(0);
-}
+}*/

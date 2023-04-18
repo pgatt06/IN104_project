@@ -43,7 +43,7 @@ void trouver_cycles(int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int to
     }
 }
 
-int main() {
+/*int main() {
 
     int n=3;
     bool visite[n];
@@ -62,8 +62,8 @@ int main() {
     tab[6]=1;
     
     
-    // Find cycles
+    // trouver les cycles affichage simple
     trouver_cycles(n , tab, visite, sur_chemin, top,  chemin );
 
     return 0;
-}
+}*/

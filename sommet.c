@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "sommet.h"
+
 void *malloc(size_t nombre_d_octets);
 void free(void *ptr);
 
