@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "utils.h"
 //changement de utils pour récupérer le max et l'indice dans une liste 
 //pour cela on cré une structure 
 
