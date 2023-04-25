@@ -14,16 +14,18 @@ int in_liste(int data, int* liste, int n){
 }
 
 
-//fonction pour la recherche d'un max 
+//fonction pour la recherche d'un max renvoie le max et son indice 
 int max(int size, int* liste){
     int maxi = liste[0];
+    int indice =0;
     for (int i = 0; i < size-1; i++)
     {
         if (liste[i]>maxi){
             maxi = liste[i];
+            indice =i;
         }
     }
-    return maxi;
+    return (maxi,indice);
 }
 
 
