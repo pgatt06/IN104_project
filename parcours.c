@@ -17,3 +17,4 @@ puis on recherche encore une fois le plaisir max
 on continue ce processus 
 */
 
+int Max_plaisir(int n, int T[n*n],)

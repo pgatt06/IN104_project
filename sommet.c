@@ -63,7 +63,7 @@ int* liste_plaisir(int n, int T[n*n], int u, int compteur)
     }
     return (A);
 }
-//je cré une liste de structure contenant les arrivées possibles avec le plaisir associé 
+//je crée une liste de structure contenant les arrivées possibles avec le plaisir associé 
 struct sommet_plaisir *recherche(int n, int T[n*n],int sommet, int compteur)
 {
     struct sommet_plaisir *liste =malloc(compteur * sizeof(struct sommet_plaisir)); //liste de structure
