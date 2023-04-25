@@ -9,10 +9,13 @@ int plaisir(int n, int tab[n*n], int n_chemin, int chemin[n_chemin]){
         int arrive = chemin[i];
         compt_plaisir += tab[depart*n+arrive];
     }
+        int depart = chemin[(n_chemin-1)];
+        int arrive = chemin[0];
+    compt_plaisir=compt_plaisir+tab[depart*n+arrive];
     return (compt_plaisir);
 }
 
-int main(){
+/*int main(){
     int n = 5; 
     int tab[n*n];
 
@@ -21,11 +24,12 @@ int main(){
     }
 
     tab[1] = -10;
-    tab[8] = 5;
-    tab[14]=-2;
-    tab[17]=-3;
-    tab[20]=-7;
-    tab[24]=-2;
+    tab[7]=5;
+    tab[13]=-2;
+    tab[16]=-3;
+    tab[19]=-7;
+    tab[23]=-2;
+
    
 
     int n_chemin = 2;
@@ -35,11 +39,12 @@ int main(){
     chemin[1] = 4;
 
 
+
     int plaisir_nb = 0;
 
     plaisir_nb = plaisir(n, tab, n_chemin, chemin);
     printf("%d \n", plaisir_nb);
 
     return 0;
-}
+}/*
 
