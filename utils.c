@@ -39,7 +39,7 @@ struct maximum max(int size, int* liste){
 }
 
 //j'affiche ma structure 
-void affichage(struct maximum l)
+void affichage_st(struct maximum l)
 {
     printf("max=%d,indice=%d",l.maxi,l.indice);
     printf("\n");

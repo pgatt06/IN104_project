@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "sommet.h"
+#include "utils.h"
+
+
 
 void *malloc(size_t nombre_d_octets);
 void free(void *ptr);
@@ -86,6 +89,9 @@ void afficher_liste(struct sommet_plaisir *liste, int compteur) {
   }
 }
 
+
+
+
 int main() {
   int n = 2;
   int T[4];
@@ -107,4 +113,6 @@ int main() {
 
   struct sommet_plaisir *C = recherche(n, T, u, compteur);
   afficher_liste(C, compteur);
+
+
 }
