@@ -12,7 +12,7 @@ int plaisir(int n, int tab[n*n], int n_chemin, int chemin[n_chemin]){
     return (compt_plaisir);
 }
 
-/*int main(){
+int main(){
     int n = 5; 
     int tab[n*n];
 
@@ -41,5 +41,5 @@ int plaisir(int n, int tab[n*n], int n_chemin, int chemin[n_chemin]){
     printf("%d \n", plaisir_nb);
 
     return 0;
-}*/
+}
 
