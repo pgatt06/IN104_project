@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "sommet.h"
 #include "utils.h"
 
@@ -19,26 +20,6 @@ puis on recherche encore une fois le plaisir max
 on continue ce processus 
 */
 
-int Max_plaisir(int n, int T[n*n]){
-    int plaisir=0; 
-    
-    for(int j=0;j<compteur;j++){
-        int compteur= taille (n,T,0);
-        int compt_plaisir=0;
-        int *L_plaisir=liste_plaisir(n,T,j,compteur);
-        int *L_arrivee=liste_arrivee(n,T,j,compteur);
-
-        maximum max(compteur,L_plaisir); 
-        compt_plaisir=compt_plaisir+ L_plaisir[max.indice];
-        L_plaisir[max.indice]=0;
-
-
-}
-}
-
-#include <stdio.h>
-#include <stdbool.h>
-#define MAX_NODES 100
 
 int weight[MAX_NODES][MAX_NODES]; // matrice de poids
 int n; // nombre de noeuds
