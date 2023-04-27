@@ -88,8 +88,8 @@ int main() {
     struct chemin chemin = { 0 };
 
     int*A=tab_plaisir(n,tab, 0, 1, visited, &chemin);
-
-    affichage(A,strlen(A));
+    int size_liste= sizeof(&A)/sizeof(int);
+    affichage(A,size_liste);
 
     return 0;
 }
