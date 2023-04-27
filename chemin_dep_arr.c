@@ -9,6 +9,11 @@
     int arrete[];
 };*/
 
+void affichage(int *A, int c) {
+  for (int i = 0; i < c; ++i) {
+    printf("%d,", A[i]);
+  }
+}
 
 //permet d'afficher le chemin
 void voir_chemin(struct chemin* chemin) {
@@ -19,31 +24,45 @@ void voir_chemin(struct chemin* chemin) {
 }
 
 //permet de trouver tous les chemins entre le début et la fin 
-int trouver_chemin(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin) {
+int* tab_plaisir(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin) {
     visited[debut] = true;
     chemin->arrete[chemin->taille++] = debut;
     int plaisir_f=-20;
-    
-
+    int compt=0;
+    int *A = NULL;
+    int *tmp_A= NULL;
     
     if (debut == fin){
-        int test= plaisir(n,T,chemin->taille,chemin->arrete);
-        if (test>plaisir_f){plaisir_f=test;}
+        compt++;
+        tmp_A =malloc((compt-1) * sizeof(int));
+        for(int k=0;k<compt-1;k++){
+                        tmp_A[k]=A[k];
+                    }
+                    
+        A = realloc(A,compt * sizeof(int));
+        A[compt-1]= plaisir(n,T,chemin->taille,chemin->arrete);
+                //boucle for remplissage de valeurs
+                for(int k=0;k<compt;k++){
+                    A[k]=tmp_A[k];
+                }
+                free (tmp_A);
         voir_chemin(chemin);
+        printf("plaisir %d\n",plaisir_f);
     
     } 
     else {
         for (int i = 0; i < n; i++) {
             if (T[debut*n+i] && !visited[i]) {
                 
-                trouver_chemin(n,T, i,fin, visited, chemin);
+                tab_plaisir(n,T, i,fin, visited, chemin);
             }
         }
     }
 
     visited[debut] = false;
     chemin->taille--;
-    return(plaisir_f);
+    
+    return(A);
 }
 
 
@@ -68,7 +87,9 @@ int main() {
     bool visited[n];
     struct chemin chemin = { 0 };
 
-    trouver_chemin(n,tab, 0, 1, visited, &chemin);
+    int*A=tab_plaisir(n,tab, 0, 1, visited, &chemin);
+
+    affichage(A,strlen(A));
 
     return 0;
 }
