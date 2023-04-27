@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "calcul_plaisir_chemin.h"
+#include "chemin_dep_arr.h"
 
-
-struct chemin {
+/*struct chemin {
     int taille;
     int arrete[];
-};
+};*/
 
 
 //permet d'afficher le chemin
