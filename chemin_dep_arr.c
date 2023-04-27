@@ -23,7 +23,7 @@ int trouver_chemin(int n, int T[n*n], int debut, int fin, bool visited[], struct
     visited[debut] = true;
     chemin->arrete[chemin->taille++] = debut;
     int plaisir_f=-20;
-    int compt=0;
+    
 
     
     if (debut == fin){
@@ -35,7 +35,7 @@ int trouver_chemin(int n, int T[n*n], int debut, int fin, bool visited[], struct
     else {
         for (int i = 0; i < n; i++) {
             if (T[debut*n+i] && !visited[i]) {
-                compt++;
+                
                 trouver_chemin(n,T, i,fin, visited, chemin);
             }
         }
