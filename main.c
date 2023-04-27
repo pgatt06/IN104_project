@@ -5,11 +5,12 @@
 #include "sommet.h"
 #include "calcul_plaisir_chemin.h"
 
-int main(){
+int main(int argc, char* argv[]){
 
 //lecture des données du fichier data.txt
     struct data i ={0,0};
-    struct data k=read_info("data.txt",i);
+    char* texte =argv[argc-1];
+    struct data k=read_info(texte,i);
 //création de la matrice adjacente
     int taille = k.croisements+1;
     int tab[(taille)*(taille)];
