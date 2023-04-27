@@ -54,9 +54,11 @@ int main(int argc, char* argv[]){
 
     for(int i=0;i<taille;i++){
         tab_plaisir(taille,tab,0,i,visite,chemin,liste);
-        int test = max
+        int test = max(liste.liste_p);
+        if (test>plaisir_max){plaisir_max=test;}
     }
 
+    Printf("Le plaisir max est :%d\n",plaisir_max)
     
     return (0);
     }
