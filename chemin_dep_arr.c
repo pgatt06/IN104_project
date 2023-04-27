@@ -9,6 +9,7 @@
     int arrete[];
 };*/
 
+
 void affichage(int *A, int c) {
   for (int i = 0; i < c; ++i) {
     printf("%d,", A[i]);
@@ -24,7 +25,7 @@ void voir_chemin(struct chemin* chemin) {
 }
 
 //permet de trouver tous les chemins entre le début et la fin 
-int* tab_plaisir(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin) {
+int* tab_plaisir(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin,struct liste) {
     visited[debut] = true;
     chemin->arrete[chemin->taille++] = debut;
     int plaisir_f=-20;
@@ -88,7 +89,7 @@ int main() {
     struct chemin chemin = { 0 };
 
     int*A=tab_plaisir(n,tab, 0, 1, visited, &chemin);
-    int size_liste= sizeof(&A)/sizeof(int);
+    
     affichage(A,size_liste);
 
     return 0;
