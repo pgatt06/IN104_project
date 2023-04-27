@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include "calcul_plaisir_chemin.h"
 
+
+
 int plaisir(int n, int tab[n*n], int n_chemin, int chemin[n_chemin]){
     int compt_plaisir=0;
     for(int i=1; i<n_chemin; i++){

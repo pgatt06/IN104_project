@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
+#include "taille_liste.h"
 
 
 int taille_liste_entier(int* A)
@@ -14,14 +14,9 @@ int taille_liste_entier(int* A)
     return taille; 
 }
 
-void affichage(int n)
-{
-    printf("%d\n",n);
-}
-
-int main ()
+/*int main ()
 {
     int A[]={1,2,3,4,6};
     int k=taille_liste_entier(A);
     affichage(k);
-}
+}*/

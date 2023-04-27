@@ -3,11 +3,17 @@
 #include <stdbool.h>
 #include "calcul_plaisir_chemin.h"
 #include "chemin_dep_arr.h"
+#include "taille_liste.h"
 
 /*struct chemin {
     int taille;
     int arrete[];
 };*/
+
+struct liste_plaisir{
+    int taille;
+    int * liste_p;
+};
 
 
 void affichage(int *A, int c) {
@@ -25,10 +31,9 @@ void voir_chemin(struct chemin* chemin) {
 }
 
 //permet de trouver tous les chemins entre le début et la fin 
-int* tab_plaisir(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin,struct liste) {
+void tab_plaisir(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin,struct liste_plaisir  liste) {
     visited[debut] = true;
     chemin->arrete[chemin->taille++] = debut;
-    int plaisir_f=-20;
     int compt=0;
     int *A = NULL;
     int *tmp_A= NULL;
@@ -47,15 +52,17 @@ int* tab_plaisir(int n, int T[n*n], int debut, int fin, bool visited[], struct c
                     A[k]=tmp_A[k];
                 }
                 free (tmp_A);
+        liste.liste_p=A;
+        liste.taille=compt;
+
         voir_chemin(chemin);
-        printf("plaisir %d\n",plaisir_f);
     
     } 
     else {
         for (int i = 0; i < n; i++) {
             if (T[debut*n+i] && !visited[i]) {
                 
-                tab_plaisir(n,T, i,fin, visited, chemin);
+                tab_plaisir(n,T, i,fin, visited, chemin,liste);
             }
         }
     }
@@ -63,7 +70,6 @@ int* tab_plaisir(int n, int T[n*n], int debut, int fin, bool visited[], struct c
     visited[debut] = false;
     chemin->taille--;
     
-    return(A);
 }
 
 
@@ -87,10 +93,12 @@ int main() {
 
     bool visited[n];
     struct chemin chemin = { 0 };
+    struct liste_plaisir liste;
 
-    int*A=tab_plaisir(n,tab, 0, 1, visited, &chemin);
+    tab_plaisir(n,tab, 0, 1, visited, &chemin,liste);
     
-    affichage(A,size_liste);
+   
+    affichage(liste.liste_p,liste.taille);
 
     return 0;
 }
