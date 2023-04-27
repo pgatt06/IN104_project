@@ -5,7 +5,7 @@
 //pour cela on cré une structure 
 
 
-struct maximum{int maxi;int indice;};
+//struct maximum{int maxi;int indice;};
 
 
 

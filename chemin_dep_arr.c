@@ -10,10 +10,10 @@
     int arrete[];
 };*/
 
-struct liste_plaisir{
+/*struct liste_plaisir{
     int taille;
     int * liste_p;
-};
+};*/
 
 
 void affichage(int *A, int c) {

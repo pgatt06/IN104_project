@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include "read_data_3.h"
 #include "liste_boucle_2.h"
-#include "sommet.h"
 #include "calcul_plaisir_chemin.h"
+#include "utils.h"
+
 
 int main(int argc, char* argv[]){
 
@@ -28,6 +29,9 @@ int main(int argc, char* argv[]){
     bool sur_chemin[n];
     int chemin[n];
     int top = 0;
+
+    struct chemin chemin;
+    struct liste_plaisir liste;
     
     
 
@@ -46,6 +50,13 @@ int main(int argc, char* argv[]){
         if(plaisir_cycle>0){printf("SKY IS THE LIMIT \n");
         }
     }
+    int plaisir_max=0;
+
+    for(int i=0;i<taille;i++){
+        tab_plaisir(taille,tab,0,i,visite,chemin,liste);
+        int test = max
+    }
+
     
     return (0);
     }
