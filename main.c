@@ -3,7 +3,7 @@
 #include "read_data_3.h"
 #include "liste_boucle_2.h"
 #include "calcul_plaisir_chemin.h"
-#include "utils.h"
+#include "maximum_liste.h"
 
 
 int main(int argc, char* argv[]){
@@ -32,6 +32,8 @@ int main(int argc, char* argv[]){
 
     struct chemin chemin;
     struct liste_plaisir liste;
+
+    int sky_is_the_limit=0;
     
     
 
@@ -48,17 +50,18 @@ int main(int argc, char* argv[]){
         int plaisir_cycle= plaisir(n,tab,resultat[i].taille, resultat[i].tableau);
         printf("Le plaisir du cycle est %d\n",plaisir_cycle);
         if(plaisir_cycle>0){printf("SKY IS THE LIMIT \n");
+        sky_is_the_limit=1;
         }
     }
     int plaisir_max=0;
 
     for(int i=0;i<taille;i++){
         tab_plaisir(taille,tab,0,i,visite,chemin,liste);
-        int test = max(liste.liste_p);
+        int test = maxi(liste.liste_p);
         if (test>plaisir_max){plaisir_max=test;}
     }
-
-    Printf("Le plaisir max est :%d\n",plaisir_max)
+    if(sky_is_the_limit=1){printf("SKY IS THE LIMIT\n");}
+    else{Printf("Le plaisir max est :%d\n",plaisir_max);}
     
     return (0);
     }

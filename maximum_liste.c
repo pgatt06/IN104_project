@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "maximum_liste.h"
 
 int maxi(int *A, int n)
 {
