@@ -12,10 +12,10 @@ _calcul_plaisir.c=  calcul le plaisir associé à un chemin donné
 
 -test_boucle.c : permet de tester si le graphe possède une boucle ou non 
 
-- sommet.c : permet de déterminer l’ensemble des sommets accessibles à partir d’un sommet donné ainsi que les plaisirs associés.On récupère l'ensemble des arrivées et des plaisirs sous forme de liste et on renvoi une liste de structure de type [ (arrivée, plaisir), () ....] pour un sommmet donné en argument. 
+-sommet.c : permet de déterminer l’ensemble des sommets accessibles à partir d’un sommet donné ainsi que les plaisirs associés.On récupère l'ensemble des arrivées et des plaisirs sous forme de liste et on renvoi une liste de structure de type [ (arrivée, plaisir), () ....] pour un sommmet donné en argument. 
 
 
-- chemin_dep_arr.c =permet de trouver tous es chemins possibles entre le début et la fin donnés en argument. 
+-chemin_dep_arr.c =permet de trouver tous es chemins possibles entre le début et la fin donnés en argument. 
 
 -taille_liste.c = programme qui permet de calculer la taille d'une liste donée en argument
 
@@ -26,6 +26,4 @@ _calcul_plaisir.c=  calcul le plaisir associé à un chemin donné
 L’idée du main serait dans un premier temps de lire les données, de déterminer si le graphe présente des cycles ou non ainsi que le plaisir des cycles (si positif = SKY IS THE LIMIT si négatif on ne s’y intéresse pas). Si le graphe ne possède pas de cycle, ou que des cycles dont le plaisir est négatif alors on va parcourir le graphe du début à la fin et pour chaque sommet on va aller sur la piste qui apporte le plus de plaisir jusqu’à déterminer le plaisir final, puis on réitère mais cette fois ci avec la piste qui apporte le plaisir maximal (on enlève la dernière piste prise dans le choix possible). 
 On aura ainsi l’ensemble des plaisirs possibles du graphe, il suffira de prendre le max pour déterminer le plaisir maximal. 
 
-compt_ligne : useless 
 
-read_data.c et read_data_2.c versions tests
