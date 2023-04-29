@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include "calcul_plaisir_chemin.h"
 #include "chemin_dep_arr.h"
-#include "taille_liste.h"
 
 /* Ce programme permet de déterminer tous les chemins qui existent entre un point de départ et un point d'arrivée il retourne une struct de type chemin (taille et liste des sommets du chemin)*/
 
