@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "read_data_3.h"
-#include "liste_boucle_2.h"
+#include "test_cycle_positif.h"
 #include "calcul_plaisir_chemin.h"
 #include "utilitaires.h"
 #include "chemin_dep_arr.h"
@@ -16,56 +16,36 @@ int main(int argc, char* argv[]){
     char* texte =argv[argc-1];
     struct data k=read_info(texte,i);
 //création de la matrice adjacente
-    int taille = k.croisements+1;
-    int tab[(taille)*(taille)];
-    i=remplir("data.txt",taille,tab,k);
+    int n = k.croisements+1;
+    int tab[n*n];
+    i=remplir("data.txt",n,tab,k);
 //affichage de la matrice adjacente
-    voir(taille,tab);
+    voir(n,tab);
     printf("\n");
 
-//resultat = tableau de structure 
-// structure cycle = taille du cycle et tableau avec tous les sommets de chaque cycle
-    int n= taille;
-    struct cycle* resultat; 
-    int taille_resultat = 0;
+
+    int sky_is_the_limit=trouver_cycle_positif(n,tab);
+    printf("il y a un cycle pos (1 oui 0 non) : %d\n",sky_is_the_limit);
+  
+    
     bool visite[n];
-    bool sur_chemin[n];
-    int chemin_liste[n];
-    int top = 0;
+
+
 
     struct chemin st_chemin ;
     struct liste_plaisir st_liste;
 
 
-    int sky_is_the_limit=0;
-    
-    
-
-    // trouver les cycles affichage simple
-    trouver_cycles(taille , tab, visite, sur_chemin,top,chemin_liste,&resultat,&taille_resultat);
-
-    printf("\n");
-    printf("Le graphe possède %d cycle.s. \n",taille_resultat);
-    printf("\n");
-
-    // on indique le plaisir de chaque cycle = PROBLEME AFFICHE QUE DES 0 !!
-    for(int i=0;i<taille_resultat;i++){
-        printf("Le %d eme cycle est de taille :%d\n ",i, resultat[i].taille);
-        printf("le cycle étudié est:");
-        affichage(resultat[i].tableau,resultat[i].taille);
-        printf("\n");
-        int plaisir_cycle= plaisir_CY(n,tab,resultat[i].taille, resultat[i].tableau);
-        printf("Le plaisir du cycle est %d\n",plaisir_cycle);
-        if(plaisir_cycle>0){printf("SKY IS THE LIMIT \n");
-        sky_is_the_limit=1;
-        }
-    }
+    //initialisation du plaisir maximal 
     int plaisir_max=0;
 
-    for(int i=1;i<taille;i++){
+    // on applique la fonction qui recherche tous les chemins entre 0 et tous les points et on prend le maximum des plaisirs 
+    
+    for(int i=1;i<n;i++){
         int dep=0;
-        printf("on est au tour chemin n %d\n",i);
-        tab_plaisir(taille,tab,dep,i,visite,&st_chemin,&st_liste);
+        
+        printf("on est au somment n° %d\n",i);
+        tab_plaisir(n,tab,dep,i,visite,&st_chemin,&st_liste);
         int test = maxi(st_liste.liste_p,st_liste.taille);
         if (test>plaisir_max){plaisir_max=test;}
     }
