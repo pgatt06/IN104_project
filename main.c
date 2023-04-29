@@ -4,6 +4,8 @@
 #include "liste_boucle_2.h"
 #include "calcul_plaisir_chemin.h"
 #include "maximum_liste.h"
+#include "chemin_dep_arr.h"
+
 
 
 int main(int argc, char* argv[]){
@@ -27,18 +29,19 @@ int main(int argc, char* argv[]){
     int taille_resultat = 0;
     bool visite[n];
     bool sur_chemin[n];
-    int chemin[n];
+    int chemin_liste[n];
     int top = 0;
 
-    struct chemin chemin;
-    struct liste_plaisir liste;
+    struct chemin st_chemin ;
+    struct liste_plaisir st_liste;
+
 
     int sky_is_the_limit=0;
     
     
 
     // trouver les cycles affichage simple
-    trouver_cycles(taille , tab, visite, sur_chemin,top,chemin,&resultat,&taille_resultat);
+    trouver_cycles(taille , tab, visite, sur_chemin,top,chemin_liste,&resultat,&taille_resultat);
 
     printf("\n");
     printf("Le graphe possède %d cycle.s. \n",taille_resultat);
@@ -56,12 +59,13 @@ int main(int argc, char* argv[]){
     int plaisir_max=0;
 
     for(int i=0;i<taille;i++){
-        tab_plaisir(taille,tab,0,i,visite,chemin,liste);
-        int test = maxi(liste.liste_p);
+        int dep=0;
+        tab_plaisir(taille,tab,dep,i,visite,&st_chemin,&st_liste);
+        int test = maxi(st_liste.liste_p,st_liste.taille);
         if (test>plaisir_max){plaisir_max=test;}
     }
-    if(sky_is_the_limit=1){printf("SKY IS THE LIMIT\n");}
-    else{Printf("Le plaisir max est :%d\n",plaisir_max);}
+    if(sky_is_the_limit==1){printf("SKY IS THE LIMIT\n");}
+    else{printf("Le plaisir max est :%d\n",plaisir_max);}
     
     return (0);
     }

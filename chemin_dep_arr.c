@@ -3,17 +3,7 @@
 #include <stdbool.h>
 #include "calcul_plaisir_chemin.h"
 #include "chemin_dep_arr.h"
-#include "taille_liste.c"
-
-/*struct chemin {
-    int taille;
-    int arrete[];
-};*/
-
-/*struct liste_plaisir{
-    int taille;
-    int * liste_p;
-};*/
+#include "taille_liste.h"
 
 
 void affichage(int *A, int c) {
@@ -58,6 +48,7 @@ void tab_plaisir(int n, int T[], int debut, int fin, bool visited[], struct chem
         tmpChemin[i] = chemin->arrete[i];
     }
     chemin->arrete = malloc((chemin->taille+1)*sizeof(int));
+
     for(int i = 0; i < chemin->taille; i++)
     {
         chemin->arrete[i] = tmpChemin[i];
@@ -90,7 +81,7 @@ void tab_plaisir(int n, int T[], int debut, int fin, bool visited[], struct chem
         for (int i = 0; i < n; i++) {
             if (T[debut*n+i] != 0 && !visited[i]) {
                 
-                tab_plaisir(n, T, i, fin, visited, chemin, liste);
+                tab_plaisir(n, T, i, fin, visited, chemin,liste);
             }
         }
     }
@@ -103,7 +94,7 @@ void tab_plaisir(int n, int T[], int debut, int fin, bool visited[], struct chem
 
 
 // test de la fonction
-int main() {
+/*int main() {
     
     int n = 5; 
     int tab[n*n];
@@ -131,10 +122,11 @@ int main() {
     liste.taille = 0;
     liste.liste_p = NULL;
 
-    tab_plaisir(n, tab, 0, 3, visited, &chemin, &liste);
+    tab_plaisir(n, tab, 0, 3, visited, &chemin,&liste);
     
    
     affichage(liste.liste_p,liste.taille);
 
     return 0;
 }
+*/
