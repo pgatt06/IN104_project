@@ -58,8 +58,9 @@ int main(int argc, char* argv[]){
     }
     int plaisir_max=0;
 
-    for(int i=0;i<taille;i++){
+    for(int i=1;i<taille;i++){
         int dep=0;
+        printf("on est au tour chemin n %d\n",i);
         tab_plaisir(taille,tab,dep,i,visite,&st_chemin,&st_liste);
         int test = maxi(st_liste.liste_p,st_liste.taille);
         if (test>plaisir_max){plaisir_max=test;}
