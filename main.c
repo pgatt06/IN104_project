@@ -50,7 +50,7 @@ int main(int argc, char* argv[]){
     for(int i=0;i<taille_resultat;i++){
         printf("Le %d eme cycle est de taille :%d\n ",i, resultat[i].taille);
 
-        int plaisir_cycle= plaisir(n,tab,resultat[i].taille, resultat[i].tableau);
+        int plaisir_cycle= plaisir_CY(n,tab,resultat[i].taille, resultat[i].tableau);
         printf("Le plaisir du cycle est %d\n",plaisir_cycle);
         if(plaisir_cycle>0){printf("SKY IS THE LIMIT \n");
         sky_is_the_limit=1;
