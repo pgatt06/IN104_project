@@ -3,17 +3,11 @@
 #include <stdbool.h>
 #include "calcul_plaisir_chemin.h"
 #include "chemin_dep_arr.h"
+#include "utilitaires.h"
+
 
 /* Ce programme permet de déterminer tous les chemins qui existent entre un point de départ et un point d'arrivée il retourne une struct de type chemin (taille et liste des sommets du chemin)*/
 
-//simple fonction qui affiches les valeurs d'un pointeur A ayant c éléments 
-
-void affichage(int *A, int c) {
-    printf("LISTE : \n");
-  for (int i = 0; i < c; ++i) {
-    printf("%d\n", A[i]);
-  }
-}
 
 //permet d'afficher le chemin à partir de la struct chemin (taille et liste des sommets )
 void voir_chemin(struct chemin* chemin) {
