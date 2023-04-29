@@ -3,8 +3,9 @@
 #include "read_data_3.h"
 #include "liste_boucle_2.h"
 #include "calcul_plaisir_chemin.h"
-#include "maximum_liste.h"
+#include "utilitaires.h"
 #include "chemin_dep_arr.h"
+
 
 
 
@@ -47,9 +48,11 @@ int main(int argc, char* argv[]){
     printf("Le graphe possède %d cycle.s. \n",taille_resultat);
     printf("\n");
 
+    // on indique le plaisir de chaque cycle = PROBLEME AFFICHE QUE DES 0 !!
     for(int i=0;i<taille_resultat;i++){
         printf("Le %d eme cycle est de taille :%d\n ",i, resultat[i].taille);
-
+        printf("le cycle étudié est:");
+        voir_chemin
         int plaisir_cycle= plaisir_CY(n,tab,resultat[i].taille, resultat[i].tableau);
         printf("Le plaisir du cycle est %d\n",plaisir_cycle);
         if(plaisir_cycle>0){printf("SKY IS THE LIMIT \n");
