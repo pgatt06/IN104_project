@@ -1,5 +1,12 @@
 # IN104_project
 
+plusieurs versions ont été testées (cf les deux branches du github). 
+Dans la version 1, il y a plusieurs codes qui fonctionnement mais sans succes final 
+Dans la version 2, un algorithme de la première version a permis l'écriture de chemin.c qui permet de déterminer le plaisir maximal d'un graphe. 
+
+Chaque version presente un main et un makefile. 
+il faut donc taper make puis ./myprogram data.txt avec data.txt le fichier texte contenant les données 
+
 MAIN: 
 
 -data.txt = exemple de fichier de données 
