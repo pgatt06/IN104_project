@@ -1,11 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "read_data_3.h"
+#include "read_data.h"
 
 
 
 
-//cré une structure
+//créé une structure
 //struct data {int piste;int croisements;};
 
 
