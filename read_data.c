@@ -9,16 +9,18 @@
 //struct data {int piste;int croisements;};
 
 
+
+
 struct data read_info(char* fname, struct data k)
 {
     FILE* fichier = fopen(fname,"r");
 
-//verification que le fichier est lu et tout ok
-    if (fichier==NULL)
+/*verification que le fichier est lu et tout ok
+    if (fichier== NULL)
     {
          printf("error\n");
          
-    }
+    }*/
 
 //récupération du nombre de croissements et du nombre de pistes
 
