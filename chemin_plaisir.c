@@ -27,13 +27,14 @@ int max_plaisir_chemins(int n, int graph[n*n]) {
 }
 
 int main() {
-    int n=3;
+    int n=4;
     int tab[n*n];
     for (int i=0; i<n*n;i++){
-        tab[i]=-999;
+        tab[i]=-INF;
     }
     tab[1]=-1;
-    tab[5]=1;
+    tab[6]=2;
+    tab[11]=1;
    
     int plaisir = max_plaisir_chemins(n,tab);
     printf("%d\n",plaisir);
