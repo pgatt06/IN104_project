@@ -22,7 +22,7 @@ int maxi(int *A, int n)
 void plaisir_max_ch_sommet(int n, int graph[n*n])
 {
     int plaisir[n]; // tableau des plaisirs 
-    int precedant[n]; // tableau des prédécesseurs
+    int precedant[n]; // tableau des prédécesseurs donc ceux présents sur le chemin pour acceder au point étuidié 
     
     // Initialisation des tableaux
     for (int i = 0; i < n; i++) {
@@ -32,7 +32,7 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
     plaisir[0] = 0; // plaisir de 0 à 0 est de 0
     
 
-    for (int i = 1; i < n; i++) {
+    //for (int i = 1; i < n; i++) {
         for (int u = 0; u < n; u++) {
             for (int v = 0; v < n; v++) {
                 if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
@@ -41,7 +41,7 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
                 }
             }
         }
-    }
+   // }
     
     // Vérification de la présence de cycles de plaisir infini
     for (int u = 0; u < n; u++) {
