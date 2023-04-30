@@ -4,11 +4,10 @@ VERSION_1 :
 
 -read_data_3.c = permet de lire les données d'un fichier et de le convertir en matrice adjacente dont les coefficients sont les plaisirs des pistes. 0 signifie qu'il n'y a pas de piste ( on suppose ici qu'il n'existe pas de piste à plaisir nul)
 
--liste_boucle.c : affiche toutes les boucles présentes dans le graphe (elle affiche chaque sommet présent dans le cycle) - il faut encore rajouter un compteur pour déterminer le plaisir total ou créer une fonction qui a partir d’une boucle détermine le plaisir de la boucle. Dans la deuxième solution il faudra alors que la fonction liste_boucle.c renvoie un tableau a avec tous les sommets et ceci pour chaque boucle. 
 
 -liste_boucle_2.c = test pour retourner un tableau avec tous les cycles présents dans le cycle ainsi que leur taille 
 
-_calcul_plaisir.c=  calcul le plaisir associé à un chemin donné 
+-calcul_plaisir.c=  calcul le plaisir associé à un chemin donné 
 
 -test_boucle.c : permet de tester si le graphe possède une boucle ou non 
 
@@ -17,9 +16,9 @@ _calcul_plaisir.c=  calcul le plaisir associé à un chemin donné
 
 -chemin_dep_arr.c =permet de trouver tous es chemins possibles entre le début et la fin donnés en argument. 
 
--taille_liste.c = programme qui permet de calculer la taille d'une liste donée en argument
+-test_cycle_positif.c: programme qui permet de savoir si le graphe présente un cycle positif ou pas 
 
--maximum_liste.c =programme qui renvoi le maximum d'une liste
+-utilitaires.c =programme qui renvoi le maximum d'une liste et qui affiche la liste avec toutes les arrivées à partir d'un sommet donné. 
 
 -utils.c =renvoi une structure (maximum, indice_du_max) d'une liste en argument
 
