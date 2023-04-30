@@ -14,7 +14,7 @@ VERSION_1 :
 -sommet.c : permet de déterminer l’ensemble des sommets accessibles à partir d’un sommet donné ainsi que les plaisirs associés.On récupère l'ensemble des arrivées et des plaisirs sous forme de liste et on renvoi une liste de structure de type [ (arrivée, plaisir), () ....] pour un sommmet donné en argument. 
 
 
--chemin_dep_arr.c =permet de trouver tous es chemins possibles entre le début et la fin donnés en argument. 
+-chemin_dep_arr.c =permet de trouver tous es chemins possibles entre le début et la fin donnés en argument. (probleme seg fault )
 
 -test_cycle_positif.c: programme qui permet de savoir si le graphe présente un cycle positif ou pas 
 
