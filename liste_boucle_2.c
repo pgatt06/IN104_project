@@ -5,14 +5,6 @@
 #include <stdlib.h>
 #include "liste_boucle_2.h"
 
-//j'affiche ma liste avec toutes les arricées à partit du sommet u
-void affichage(int *A, int c) {
-  for (int i = 0; i < c; ++i) {
-    printf("%d,", A[i]);
-  }
-}
-
-
 /*struct cycle
 {
     int taille;
@@ -59,8 +51,7 @@ void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemi
                     for(int k=0;k<compteur_taille_cycle-1;k++){
                         tmp_tableau[k]=tableau[k];
                     }
-                    affichage(tableau,compteur_taille_cycle-1);
-                    printf("\n");
+                    
                     //augmente taille
                     tableau = realloc(tableau,(compteur_taille_cycle)*sizeof(int));
 
@@ -70,9 +61,6 @@ void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemi
                     for(int k=0;k<compteur_taille_cycle;k++){
                         tableau[k]=tmp_tableau[k];
                     }
-                    printf("tour n°%d\n",j);
-                    affichage(tableau,compteur_taille_cycle);
-                    printf("\n");
                     free (tmp_tableau);
 
                 }
@@ -117,7 +105,7 @@ void trouver_cycles(int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int to
     }
 }
 
-int main() {
+/*int main() {
     struct cycle* resultat; 
     int taille_resultat = 0;
     int n=5;
@@ -149,9 +137,7 @@ int main() {
 
     for(int i=0;i<taille_resultat;i++){
         printf("Le %d eme cycle est de taille :%d\n ",i, resultat[i].taille);
-        affichage(resultat[i].tableau,resultat[i].taille);
-        printf("\n");
     }
     
     return 0;
-}
+}*/
