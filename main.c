@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
     voir(n,tab);
     printf("\n");
 
-plaisir_max_ch_sommet(int n, int tab[n*n]);
+plaisir_max_ch_sommet(n,&tab[n*n]);
 
    
     return (0);
