@@ -6,17 +6,17 @@
 
 
 /* ce programme permet de déterminer le maximum dans une liste A de taille n*/
-int mini(int *A, int n)
+int maxi(int *A, int n)
 {
-    int min=A[0];
+    int max=A[0];
     for (int k=0; k<n; ++k)
     {
-        if (A[k]<min)
+        if (A[k]>max)
         {
-            min=A[k];
+            max=A[k];
         }
     }
-    return min; 
+    return max; 
 }
 
 void plaisir_max_ch_sommet(int n, int graph[n*n])
@@ -31,47 +31,41 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
     
     // Initialisation des tableaux
     for (int i = 0; i < n; i++) {
-        plaisir[i] = INT_MAX; // plaisir initial entre 0 et chaque sommet est -infini
+        plaisir[i] = INT_MIN; // plaisir initial entre 0 et chaque sommet est -infini
         precedant[i] = -1; // pas de sommet avant la source 0 
     }
     plaisir[0] = 0; // plaisir de 0 à 0 est de 0
     
 
-for (int k=0;k<n;k++){}
+for (int k=0;k<n;k++){
     for (int u = 0; u < n; u++) {
         for (int v = 0; v < n; v++) {
-             if (graph[u*n+v] != 0 && plaisir[u] != INT_MAX && plaisir[u] + graph[u*n+v] < plaisir[v]) {
+             if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
                 plaisir[v] = plaisir[u] + graph[u*n+v]; // mise à jour du plaisir
                 precedant[v] = u; // mise à jour du sommet précédent 
                 }
             }
         }
 
-    
+}
     // Vérification de la présence de cycles de plaisir infini
     for (int u = 0; u < n; u++) {
         for (int v = 0; v < n; v++) {
-            if (graph[u*n+v] != 0 && plaisir[u] != INT_MAX && plaisir[u] + graph[u*n+v] < plaisir[v]) {
+            if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
                 printf("SKY IS THE LIMIT \n");
                 return;
             }
         }
     }
 
-    //test de la présence d'un cycle
-    /*int a=trouver_cycle_positif(n,graph);
-    if (a==1)
-    {
-        printf("SKY IS THE LIMIT\n");
-        return;
-    }*/
+    
     
     
     // Affichage des résultats
     printf("Le plaisir maximal pour chaque sommet est :\n");
     for (int i = 0; i < n; i++) {
         printf("Sommet %d : ", i);
-        if (plaisir[i] == INT_MAX) {
+        if (plaisir[i] == INT_MIN) {
             printf("Pas de chemin\n");
         } else {
             printf("%d ", plaisir[i]);
@@ -82,7 +76,7 @@ for (int k=0;k<n;k++){}
             printf("\n");
         }
     }
-    int plaisir_max =mini(plaisir,n);
+    int plaisir_max =maxi(plaisir,n);
     printf("le plaisir maximal est : %d\n",plaisir_max);
 }
 
@@ -96,9 +90,9 @@ for (int k=0;k<n;k++){}
     }
 
     tab[1] = -1;
-    tab[3] = -1;
-    tab[5] = 1;
-    tab[6]=6;
+    
+    tab[5] = 2;
+    
     
 
     plaisir_max_ch_sommet(n,tab);
