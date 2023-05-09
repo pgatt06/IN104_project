@@ -21,8 +21,13 @@ int maxi(int *A, int n)
 
 void plaisir_max_ch_sommet(int n, int graph[n*n])
 {
+    
+    
     int plaisir[n]; // tableau des plaisirs 
     int precedant[n]; // tableau des prédécesseurs donc ceux présents sur le chemin pour acceder au point étuidié 
+   
+    
+    
     
     // Initialisation des tableaux
     for (int i = 0; i < n; i++) {
@@ -32,34 +37,34 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
     plaisir[0] = 0; // plaisir de 0 à 0 est de 0
     
 
-for (int k=0;k<n;k++){}
-    for (int u = 0; u < n; u++) {
-        for (int v = 0; v < n; v++) {
-             if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
-                plaisir[v] = plaisir[u] + graph[u*n+v]; // mise à jour du plaisir
-                precedant[v] = u; // mise à jour du sommet précédent 
+    for (int k=0;k<n;k++){}
+        for (int u = 0; u < n; u++) {
+            for (int v = 0; v < n; v++) {
+                if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
+                    plaisir[v] = plaisir[u] + graph[u*n+v]; // mise à jour du plaisir
+                    precedant[v] = u; // mise à jour du sommet précédent 
+                    }
                 }
             }
-        }
 
     
     // Vérification de la présence de cycles de plaisir infini
-   /* for (int u = 0; u < n; u++) {
+    for (int u = 0; u < n; u++) {
         for (int v = 0; v < n; v++) {
             if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
                 printf("SKY IS THE LIMIT \n");
                 return;
             }
         }
-    }*/
+    }
 
     //test de la présence d'un cycle
-    int a=trouver_cycle_positif(n,graph);
+    /*int a=trouver_cycle_positif(n,graph);
     if (a==1)
     {
         printf("SKY IS THE LIMIT\n");
         return;
-    }
+    }*/
     
     
     // Affichage des résultats
