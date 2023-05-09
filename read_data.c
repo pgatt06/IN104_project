@@ -32,13 +32,16 @@ struct data remplir(char* fname, int taille, int tab[(taille)*(taille)], struct 
     int depart;
     int arrivee;
     int plaisir;
-
+     //pour lire la première ligne (regarder comment sauter une ligne en c)
+    fscanf(fichier,"%d %d",&k.croisements,&k.piste);
+    //printf("%d,%d \n",croisements,piste);
     for (int i = 0; i < ((taille)*(taille)); i++) {
         tab[i] = 0;
     }
 
-    while (fscanf(fichier, "%d %d %d", &depart, &arrivee, &plaisir) == 3) {
-        tab[taille*depart+arrivee] = plaisir;
+    while (feof(fichier)==0) {
+        fscanf(fichier,"%d %d %d",&depart,&arrivee,&plaisir);
+        tab[(taille)*depart+arrivee] = plaisir;
     }
 
     fclose(fichier);
