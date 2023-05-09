@@ -58,6 +58,7 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
     if (a==1)
     {
         printf("SKY IS THE LIMIT\n");
+        return;
     }
     
     
