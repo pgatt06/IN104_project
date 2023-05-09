@@ -6,6 +6,8 @@
 
 
 
+
+
 int main(int argc, char* argv[]){
 
 //lecture des données du fichier data.txt

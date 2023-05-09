@@ -32,7 +32,7 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
     plaisir[0] = 0; // plaisir de 0 à 0 est de 0
     
 
-
+for (int k=0;k<n;k++){}
     for (int u = 0; u < n; u++) {
         for (int v = 0; v < n; v++) {
              if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
