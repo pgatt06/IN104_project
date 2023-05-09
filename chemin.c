@@ -44,7 +44,7 @@ for (int k=0;k<n;k++){}
 
     
     // Vérification de la présence de cycles de plaisir infini
-    /*for (int u = 0; u < n; u++) {
+   /* for (int u = 0; u < n; u++) {
         for (int v = 0; v < n; v++) {
             if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
                 printf("SKY IS THE LIMIT \n");
