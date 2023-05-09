@@ -22,6 +22,10 @@ int main(int argc, char* argv[]){
     voir(n,tab);
     printf("\n");
 
+    for(int i=0;i<n*n;i++){
+        tab[i]=-tab[i];
+    }
+
 plaisir_max_ch_sommet(n,&tab[n*n]);
 
    
