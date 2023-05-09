@@ -81,7 +81,7 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
     printf("le plaisir maximal est : %d\n",plaisir_max);
 }
 
-int main()
+/*int main()
 {
     int n = 3; 
     int tab[n*n];
@@ -98,4 +98,4 @@ int main()
 
     plaisir_max_ch_sommet(n,tab);
     return(0);
-}
+}*/
