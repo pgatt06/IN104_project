@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include "chemin.h"
-
+#include "test_cycle.h"
 
 
 /* ce programme permet de déterminer le maximum dans une liste A de taille n*/
@@ -44,14 +44,22 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
 
     
     // Vérification de la présence de cycles de plaisir infini
-    for (int u = 0; u < n; u++) {
+    /*for (int u = 0; u < n; u++) {
         for (int v = 0; v < n; v++) {
             if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] > plaisir[v]) {
                 printf("SKY IS THE LIMIT \n");
                 return;
             }
         }
+    }*/
+
+    //test de la présence d'un cycle
+    int a=trouver_cycle_positif(n,graph);
+    if (a==1)
+    {
+        printf("SKY IS THE LIMIT\n");
     }
+    
     
     // Affichage des résultats
     printf("Le plaisir maximal pour chaque sommet est :\n");
@@ -72,7 +80,7 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
     printf("le plaisir maximal est : %d\n",plaisir_max);
 }
 
-/*int main()
+int main()
 {
     int n = 3; 
     int tab[n*n];
@@ -89,4 +97,4 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
 
     plaisir_max_ch_sommet(n,tab);
     return(0);
-}*/
+}
