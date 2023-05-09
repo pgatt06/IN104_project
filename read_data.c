@@ -29,12 +29,6 @@ fscanf(fichier,"%d %d",&k.croisements,&k.piste);
 printf("\n");
 printf("le nombre de croisements est :%d et le nombre de pistes est :%d \n",k.croisements,k.piste);
 printf("\n");
-//on ne peut pas avoir plus de croisements que de pistes 
-if (k.croisements>k.piste)
-{
-    printf("error\n");
-    
-}
 
 if (k.piste==0)
 {
