@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include"read_2.h"
+
 // lecture du fichier et création d'une matrice dynamique 
 
 int ** read_info(char* fname, int** tab)
