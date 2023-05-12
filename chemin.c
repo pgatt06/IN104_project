@@ -3,7 +3,7 @@
 #include <limits.h>
 #include "chemin.h"
 #include "test_cycle.h"
-
+#include "read_data.h"
 
 /* ce programme permet de déterminer le maximum dans une liste A de taille n*/
 int maxi(int *A, int n)
@@ -77,6 +77,7 @@ for (int k=0;k<n;k++){
         }
     }
     int plaisir_max =maxi(plaisir,n);
+    affichage(n,plaisir);
     printf("le plaisir maximal est : %d\n",plaisir_max);
 }
 
