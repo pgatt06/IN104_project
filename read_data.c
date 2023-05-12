@@ -1,54 +1,77 @@
-#include <stdlib.h>
+#include <math.h> 
 #include <stdio.h>
+#include <stdlib.h>
 #include "read_data.h"
 
-//struct data {int piste;int croisements;};
 
-struct data read_info(char* fname, struct data k) {
-    FILE* fichier = fopen(fname, "r");
 
-    if (fichier == NULL) {
+
+// lecture du fichier et création d'une matrice dynamique 
+
+int *read_info(char* fname, int* station, int n,int tab[n*n])
+{
+    FILE*file=fopen(fname,"rb");
+    if (file==NULL)
+    {
         printf("error\n");
     }
 
-    fscanf(fichier, "%d %d", &k.croisements, &k.piste);
-
-    printf("\n");
-    printf("le nombre de croisements est :%d et le nombre de pistes est :%d \n", k.croisements, k.piste);
-    printf("\n");
-
-    if (k.piste == 0) {
-        printf("error\n");
-    }
-
-    fclose(fichier);
-
-    return k;
-}
-
-struct data remplir(char* fname, int taille, int tab[(taille)*(taille)], struct data k) {
-    FILE* fichier = fopen(fname, "r");
-
+    int croisements;
+    int pistes;
     int depart;
     int arrivee;
     int plaisir;
-     //pour lire la première ligne (regarder comment sauter une ligne en c)
-    fscanf(fichier,"%d %d",&k.croisements,&k.piste);
-    //printf("%d,%d \n",croisements,piste);
-    for (int i = 0; i < ((taille)*(taille)); i++) {
-        tab[i] = 0;
+    int compteur;
+
+    //on récupère le nb de croisements et de piste
+    fscanf(file,"%d %d", &croisements,&pistes);
+
+    if (pistes==0)
+    {
+        printf("error\n");
+        fclose(file); 
+    }   
+    int taille=croisements+1;
+
+    //on lit toutes les lignes du fichier 
+    while (!feof(file))
+    {
+        ++compteur;
+        if (compteur>1) // on met les données du fichier dans le tableau
+        {
+            fscanf(file,"%d %d %d",&depart, &arrivee, &plaisir);
+            tab[(taille)*depart+arrivee] = plaisir;
+
+        }
     }
-
-    while (feof(fichier)==0) {
-        fscanf(fichier,"%d %d %d",&depart,&arrivee,&plaisir);
-        tab[(taille)*depart+arrivee] = plaisir;
-    }
-
-    fclose(fichier);
-
-    return k;
+    fclose (file);
+    return tab; 
 }
 
+
+//fonction pour former le tableau pour récupérer les valeurs croisments et pistes pour pouvoir avoir la taille de tab donné en argument de la fonction du dessus  
+int *station_de_ski(char* fname)
+{
+    FILE *file = fopen(fname,"rb");
+    if (file==NULL) {
+        printf("error\n");
+        return NULL;
+    }
+    
+    int croisements, pistes;
+    int *tab = malloc(2*sizeof(int));// on sait que la taille sera de 2
+    for (int i = 0; i < 2; ++i) {
+        tab[i]=0;
+    }
+
+    fscanf(file, "%d %d", &croisements, &pistes);
+    tab[0] = croisements;
+    tab[1] = pistes;
+
+    fclose(file);
+    return tab;
+}
+//permet d'afficher le tableau des plaisirs des pistes existantes 
 void voir(int taille, int tab[(taille)*(taille)]) {
     printf("La matrice adjacente est :\n");
 
@@ -61,15 +84,33 @@ void voir(int taille, int tab[(taille)*(taille)]) {
     }
 }
 
-/*int main() {
-    struct data i;
-    struct data k = read_info("data.txt", i);
+void affichage (int taille, int *tab)
+{
+    for (int i=0; i<taille;++i)
+    {
+        printf("%d ",tab[i]);
+    }
+    printf("\n");
+}
 
-    int taille = k.croisements + 1;
-    int tab[(taille)*(taille)];
+/*int main (int argc, char *argv[])
+{
+    int *donnees= station_de_ski(argv[1]);
+    int croisements = donnees[0];
+    
+    int taille=croisements+1;
+    // Création d'une matrice nulle dans le main, qu'on pourra réutiliser en paramètre des fonctions
+    int tab[taille*taille];
+    for (int i=0; i<taille*taille;++i)
+    {
+        tab[i]=0;
+    }
+    int *matrice = read_info(argv[1], donnees, taille, tab);
 
-    struct data j = remplir("data.txt", taille, tab, k);
-    voir(taille, tab);
 
-    return 0;
+    voir(taille,matrice);
+    affichage(2,donnees);
+    printf("\n");
+    
 }*/
+

@@ -3,6 +3,8 @@
 #include <limits.h>
 #include "read_2.h"
 
+void *malloc( size_t nombre_d_octets);
+void free(void* ptr);
 
 
 /* ce programme permet de déterminer le maximum dans une liste A de taille n*/
@@ -38,6 +40,7 @@ void plaisir_max_ch_sommet(int n, int** graph)
     
 
 for (int k=0;k<n;k++){
+    
     for (int u = 0; u < n; u++) {
         for (int v = 0; v < n; v++) {
              if (graph[u][v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u][v] > plaisir[v]) {
@@ -46,7 +49,7 @@ for (int k=0;k<n;k++){
                 }
             }
         }
-
+    
 }
     // Vérification de la présence de cycles de plaisir infini
     for (int u = 0; u < n; u++) {
@@ -85,20 +88,39 @@ int main()
     int n = 3; 
     int **tab;
 
+    tab = (int **) malloc(n * sizeof(int *));
+    for (int i=0; i<n; i++){
+        tab[i] = (int *) malloc(n * sizeof(int));
+    }
+
     for (int i=0; i<n; i++){
         for (int j=0; j<n;++j)
         {
-          tab[i][j] = 0;  
+            tab[i][j] = 0;  
         }
-        
     }
 
     tab[0][1] = -1;
-    
+
     tab[1][2] = 2;
-    voir (n,tab);
+
+    printf("La matrice adjacente est :\n");
+    for(int i=0;i<n;i++){
+        for (int j=0; j<n;++j)
+        {
+            printf("%d ",tab[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    for (int i=0; i<n; i++){
+        free(tab[i]);
+    }
+    free(tab);
+
     
 
-    //plaisir_max_ch_sommet(n,tab);
+    plaisir_max_ch_sommet(n,tab);
     return(0);
 }
