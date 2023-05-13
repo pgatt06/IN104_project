@@ -11,20 +11,25 @@
 
 int main(int argc, char* argv[]){
 
-//lecture des données du fichier data.txt
-    struct data i ={0,0};
-    char* texte =argv[argc-1];
-    struct data k=read_info(texte,i);
 //création de la matrice adjacente
-    int n = k.croisements+1;
-    int tab[n*n];
-    i=remplir("data.txt",n,tab,k);
+    int *donnees= station_de_ski(argv[1]);
+    int croisements = donnees[0];
+    
+    int taille=croisements+1;
+    // Création d'une matrice nulle dans le main, qu'on pourra réutiliser en paramètre des fonctions
+    int tab[taille*taille];
+    for (int i=0; i<taille*taille;++i)
+    {
+        tab[i]=0;
+    }
+    int *matrice = read_info(argv[1], donnees, taille, tab);
+    
 //affichage de la matrice adjacente
-    voir(n,tab);
+    voir(taille,matrice);
     printf("\n");
 
 
-    int sky_is_the_limit=trouver_cycle_positif(n,tab);
+    int sky_is_the_limit=trouver_cycle_positif(n,matrice);
     printf("il y a un cycle pos (1 oui 0 non) : %d\n",sky_is_the_limit);
   
     
