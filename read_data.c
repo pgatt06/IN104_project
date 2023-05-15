@@ -21,7 +21,7 @@ int *read_info(char* fname, int* station, int n,int tab[n*n])
     int depart;
     int arrivee;
     int plaisir;
-    int compteur;
+    int compteur =0 ;
 
     //on récupère le nb de croisements et de piste
     fscanf(file,"%d %d", &croisements,&pistes);
