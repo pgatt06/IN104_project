@@ -25,7 +25,7 @@ int max_plaisir_chemins(int n, int graph[n*n]) {
     }
     return(plaisir_max);
 }
-
+/*
 int main() {
     int n=4;
     int tab[n*n];
@@ -39,4 +39,4 @@ int main() {
     int plaisir = max_plaisir_chemins(n,tab);
     printf("%d\n",plaisir);
     return 0;
-}
+}*/
