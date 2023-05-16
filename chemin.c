@@ -55,11 +55,11 @@ for (int k=0;k<n;k++){
                 printf("SKY IS THE LIMIT \n");
                 return;
             }
-            else if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] < plaisir[v])
-            {
-                printf("SKY IS THE LIMIT \n");
-                return; 
-            }
+           //else if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] < plaisir[v])
+           // {
+               // printf("SKY IS THE LIMIT \n");
+               // return; 
+            //}
         }
     }
 
