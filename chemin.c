@@ -55,29 +55,11 @@ for (int k=0;k<n;k++){
                 printf("SKY IS THE LIMIT \n");
                 return;
             }
-           //else if (graph[u*n+v] != 0 && plaisir[u] != INT_MIN && plaisir[u] + graph[u*n+v] < plaisir[v])
-           // {
-               // printf("SKY IS THE LIMIT \n");
-               // return; 
-            //}
+           
         }
     }
 
-    //initi recherche cycle
-   /* int *chemin=malloc(n*sizeof(int));
-    int *visite=malloc(n*sizeof(int));
-     for (int p = 0;p<n;++p){
-        visite[p]=0;
-    }
-    int cycles = 0; 
-    trouver_cycle_positif(n,graph,chemin,visite,n-1,&cycles); //appel pour trouver les cycles existants
-    if (cycles == 1){
-        printf("SKY IS THE LIMIT\n");
-        
-    }*/
-    
-    
-    
+
     // Affichage des résultats
     printf("Le plaisir maximal pour chaque sommet est :\n");
     for (int i = 0; i < n; i++) {
