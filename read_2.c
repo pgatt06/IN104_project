@@ -31,7 +31,7 @@ int *read_info(char* fname, int* station, int n,int tab[n*n])
         printf("error\n");
         fclose(file); 
     }   
-    int taille=croisements+1;
+    int taille=croisements;
 
     //on lit toutes les lignes du fichier 
     while (!feof(file))
