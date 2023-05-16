@@ -31,7 +31,7 @@ int *read_info(char* fname, int* station, int n,int tab[n*n])
         printf("error\n");
         fclose(file); 
     }   
-    int taille=croisements+1;
+    int taille=croisements;
 
     //on lit toutes les lignes du fichier 
     while (!feof(file))
@@ -78,7 +78,7 @@ void voir(int taille, int tab[(taille)*(taille)]) {
     for (int i = 0; i < ((taille)*(taille)); i++) {
         printf("%d ", tab[i]);
 
-        if ((i + 1) % taille == 0) {
+        if ((i+1) % taille == 0) {
             printf("\n");
         }
     }
