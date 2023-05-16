@@ -15,7 +15,7 @@ int main(int argc, char* argv[]){
     int *donnees= station_de_ski(argv[1]);
     int croisements = donnees[0];
     
-    int taille=croisements+1;
+    int taille=croisements;
     // Création d'une matrice nulle dans le main, qu'on pourra réutiliser en paramètre des fonctions
     int tab[taille*taille];
     for (int i=0; i<taille*taille;++i)
