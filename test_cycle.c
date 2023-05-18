@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "test_cycle_positif.h"
+#include "test_cycle.h"
 
 // fonction qui retourne 1 si le graphe présente un cycle positif et 0 sinon 
 // elle prend en argument la taille de la matrice donc le nombre de sommets et la matrice adjacente
