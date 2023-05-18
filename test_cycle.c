@@ -1,74 +1,79 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-//#include "calcul_plaisir_chemin.h"
+#include "test_cycle_positif.h"
 
+// fonction qui retourne 1 si le graphe présente un cycle positif et 0 sinon 
+// elle prend en argument la taille de la matrice donc le nombre de sommets et la matrice adjacente
+int trouver_cycle_positif(int n, int matrice[n*n]) {
+    //initialisation des tableau pour les sommets visités ou non et ceux présents dans la pile étudiée
+    int compt = 0;
+    int visite[n];
+    int pile[n];
+    int top = -1;
+    int i, j;
 
-struct chemin {
-    int taille;
-    int arrete[];
-};
-
-
-//permet d'afficher le chemin
-void voir_chemin(struct chemin* chemin) {
-    for (int i = 0; i < chemin->taille; i++) {
-        printf("%d ", chemin->arrete[i]);
+    // on n'a visité encore aucun sommet
+    for (i = 0; i < n; i++) {
+        visite[i] = 0;
     }
-    printf("\n");
 
 
-//permet de trouver tous les chemins entre le début et la fin 
-int trouver_chemin(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin){
-    visited[debut] = true;
-    chemin->arrete[chemin->taille++] = debut;
-    int plaisir_f=0;
-    
-
-    
-    if (debut == fin){
-        int test= plaisir(n,T,chemin->taille,chemin->arrete);
-        if (test>plaisir_f){plaisir_f=test;}
-        voir_chemin(chemin);
-    
-    } 
-    else {
-        for (int i = 0; i < n; i++) {
-            if (T[debut*n+i] && !visited[i]) {
+    for (i = 0; i < n; i++) {
+        //Si on n'est pas encore passé par ce sommet 
+        if (visite[i] == 0) {
+            //on commence la pile étudiée et on a visité le sommet i
+            top = 0;
+            pile[top] = i;
+            visite[i] = 1;
+            
+            while (top >= 0) {
+                int sommet = pile[top];
+                int trouve_cycle_positif = 0;
                 
-                trouver_chemin(n,T, i,fin, visited, chemin);
+                // on parcours les autres sommets à partir du sommet i 
+                for (j = 0; j < n; j++) {
+                    compt =compt+matrice[sommet*n+j];
+                    if (matrice[sommet*n+j]) {
+                        if (visite[j] == 0) {
+                            top++;
+                            pile[top] = j;
+                            visite[j] = 1;
+                            break;
+                        } else if (j == i) {
+                            if(compt>0){
+                            trouve_cycle_positif = 1;}
+                            break;
+                        }
+                    }
+                }
+                
+                if (trouve_cycle_positif) {
+                    return 1;
+                }
+                
+                if (j == n) {
+                    top--;
+                }
             }
         }
     }
-
-    visited[debut] = false;
-    chemin->taille--;
-    return(plaisir_f);
-}
-
-
-
-// test de la fonction
-int main() {
     
-    int n = 5; 
-    int tab[n*n];
-
-    for (int i=0; i<n*n; i++){
-        tab[i] = 0;
-    }
-
-    tab[1] = -10;
-    tab[7]=5;
-    tab[13]=-2;
-    tab[16]=-3;
-    tab[19]=-7;
-    tab[23]=-2;
-
-    bool visited[n];
-    struct chemin chemin = { 0 };
-
-    trouver_chemin(n,tab, 0, 1, visited, &chemin);
-
     return 0;
 }
+
+/*int main() {
+  
+    int n=3;
+    int tab[n*n];
+
+    for (int i=0; i<n*n;i++){
+        tab[i]=0;
+    }
+    tab[1]=1;
+    tab[5]=1;
+    tab[3]=-1;
+   
+    
+    int sky =trouver_cycle_positif(n,tab);
+    printf("%d\n",sky);
+    return(0);
+}*/

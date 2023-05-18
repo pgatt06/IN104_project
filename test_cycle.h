@@ -1,14 +1,4 @@
-struct chemin{
-    int taille;
-    int* arrete;
-};
+#include <stdio.h>
 
-struct liste_plaisir{
-    int taille;
-    int * liste_p;
-};
-
-
-void voir_chemin(struct chemin* chemin);
-void tab_plaisir(int n, int T[], int debut, int fin, bool visited[], struct chemin* chemin, struct liste_plaisir* liste);
-
+// retourne 1 si on trouve un cycle positif dans la matrice 
+int trouver_cycle_positif(int n, int matrice[n*n]);
