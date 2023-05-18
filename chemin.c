@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <limits.h>
 #include "chemin.h"
-#include "test_cycle.h"
 #include "read_data.h"
 
 /* ce programme permet de déterminer le maximum dans une liste A de taille n*/
