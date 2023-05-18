@@ -56,7 +56,8 @@ int trouver_cycle_positif(int n, int matrice[n*n]) {
             }
         }
     }
-    
+    printf("0");
+
     return 0;
 }
 
