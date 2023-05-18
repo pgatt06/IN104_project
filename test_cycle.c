@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "test_cycle.h"
+#include "test_cycle_positif.h"
 
 // fonction qui retourne 1 si le graphe présente un cycle positif et 0 sinon 
 // elle prend en argument la taille de la matrice donc le nombre de sommets et la matrice adjacente
@@ -56,8 +56,7 @@ int trouver_cycle_positif(int n, int matrice[n*n]) {
             }
         }
     }
-    printf("0");
-
+    
     return 0;
 }
 

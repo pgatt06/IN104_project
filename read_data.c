@@ -1,9 +1,7 @@
-#include <stdlib.h>
+#include <math.h> 
 #include <stdio.h>
+#include <stdlib.h>
 #include "read_data.h"
-
-
-
 
 
 
@@ -23,7 +21,7 @@ int *read_info(char* fname, int* station, int n,int tab[n*n])
     int depart;
     int arrivee;
     int plaisir;
-    int compteur;
+    int compteur =0 ;
 
     //on récupère le nb de croisements et de piste
     fscanf(file,"%d %d", &croisements,&pistes);
@@ -80,7 +78,7 @@ void voir(int taille, int tab[(taille)*(taille)]) {
     for (int i = 0; i < ((taille)*(taille)); i++) {
         printf("%d ", tab[i]);
 
-        if ((i + 1) % taille == 0) {
+        if ((i+1) % taille == 0) {
             printf("\n");
         }
     }
