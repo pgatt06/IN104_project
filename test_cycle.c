@@ -16,13 +16,13 @@ void voir_chemin(struct chemin* chemin) {
         printf("%d ", chemin->arrete[i]);
     }
     printf("\n");
-}
+
 
 //permet de trouver tous les chemins entre le début et la fin 
-int trouver_chemin(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin) {
+int trouver_chemin(int n, int T[n*n], int debut, int fin, bool visited[], struct chemin* chemin){
     visited[debut] = true;
     chemin->arrete[chemin->taille++] = debut;
-    int plaisir_f=-20;
+    int plaisir_f=0;
     
 
     
