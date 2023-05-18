@@ -31,9 +31,12 @@ int main(int argc, char* argv[]){
     bool sur_chemin[taille];
     int chemin[taille];
     int top = 0;
+    int cycle=-1;
    
 
-    trouver_cycles(taille , tab, visite, sur_chemin,top,chemin);
+    trouver_cycles(taille , tab, visite, sur_chemin,top,chemin,&cycle);
+    
+    if(cycle==1){printf("SKY IS THE LIMIT\n");}
    
 
    

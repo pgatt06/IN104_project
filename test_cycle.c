@@ -11,7 +11,7 @@ struct cycle
 };
 
 //fonction qui permet de trouver un cycle (si il existe) à partir d'un noeud en particulier
-void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int top, int chemin [n]) {
+void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int top, int chemin [n],int *cycle) {
 
     visite[noeud] = true; //on est passé par le noeud de départ
     sur_chemin[noeud] = true; //le noeud de départ est sur le chemin
@@ -24,28 +24,29 @@ void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemi
             //si on a a pas visité le point i 
             if (!visite[i]) { 
                 //récurcivité cette fois ci départ est le point i 
-                recherche_cycle(i,n , tab, visite, sur_chemin, top,  chemin);
+                recherche_cycle(i,n , tab, visite, sur_chemin, top,  chemin,cycle);
 
             } 
             //si le point i est sur le chemin = on a trouvé un cycle on imprime le cycle
             else if (sur_chemin[i]) {
-                printf("Cycle trouvé : ");
                 int compt=0;
                 for (int j = top - 1; j >= 0; j--) {
-                    printf("%d\n",j);
+                    
                     if (chemin[j] == i) {
-                        printf("ca%d\n",compt);
+                        
                         compt = compt + tab[chemin[top-1]*n+i];
-                        printf("ca%d avec le chacal %d et j %d ",compt,tab[chemin[top-1]*n+i],j);
+                        
+                        if(compt>0){
+                            *cycle=1;
+                            
+                        }
                         break;
                         }                    
                         compt=compt+tab[(j-1)*n+j];
-                        printf("compt %d\n",compt);
-                    // si on revient au départ du cycle on a parcouru tout le cycle 
-                    printf("pts %d\n ", chemin[j]);
+                        
                 }
 
-                printf("TOTAL Adrien LPB%d\n", compt);
+               
                
             }
 
@@ -56,10 +57,10 @@ void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemi
 }
 
 //fonction qui applique la recherche de cycle sur l'ensemble des noeuds du cycle avec la condition qu'il ne soit pas déja parcouru par un cycle
-void trouver_cycles(int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int top, int chemin [n]) {
+void trouver_cycles(int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int top, int chemin [n],int *cycle) {
     for (int i = 0; i < n; i++) {
         if (!visite[i]) {
-            recherche_cycle(i,n , tab, visite, sur_chemin, top,chemin);
+            recherche_cycle(i,n , tab, visite, sur_chemin, top,chemin,cycle);
         }
     }
 }
