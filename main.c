@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "read_data.h"
 #include "test_cycle.h"
 
@@ -24,8 +25,16 @@ int main(int argc, char* argv[]){
     voir(taille,matrice);
     printf("\n");
 
-    int sky =trouver_cycle_positif(taille,tab);
-    if (sky){printf("SKY IS THE LIMIT\n");}
+
+    
+    bool visite[taille];
+    bool sur_chemin[taille];
+    int chemin[taille];
+    int top = 0;
+   
+
+    trouver_cycles(taille , tab, visite, sur_chemin,top,chemin);
+   
 
    
     return (0);

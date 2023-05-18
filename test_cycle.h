@@ -1,4 +1,5 @@
 #include <stdio.h>
 
-// retourne 1 si on trouve un cycle positif dans la matrice 
-int trouver_cycle_positif(int n, int matrice[n*n]);
+
+void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int top, int chemin [n]);
+void trouver_cycles(int n, int tab[n*n],bool visite[n],bool sur_chemin[n],int top, int chemin [n] );
