@@ -37,12 +37,14 @@ void recherche_cycle(int noeud,int n, int tab[n*n],bool visite[n],bool sur_chemi
                         compt = compt + tab[chemin[top-1]*n+i];
                         
                         if(compt>0){
+                            //printf("compt %d\n",compt);
                             *cycle=1;
                             
                         }
                         break;
                         }                    
-                        compt=compt+tab[(j-1)*n+j];
+                        compt=compt+tab[chemin[j-1]*n+chemin[j]];
+                        //printf("visite%d\n",chemin[j]);
                         
                 }
 

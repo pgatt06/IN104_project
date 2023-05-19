@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "read_data.h"
 #include "test_cycle.h"
+#include "chemin.h"
 
 int main(int argc, char* argv[]){
 
@@ -25,7 +26,6 @@ int main(int argc, char* argv[]){
     voir(taille,matrice);
     printf("\n");
 
-
     
     bool visite[taille];
     bool sur_chemin[taille];
@@ -38,7 +38,18 @@ int main(int argc, char* argv[]){
     
     if(cycle==1){printf("SKY IS THE LIMIT\n");}
    
+  
+    int position=0;
+    int plaisir=0;
+    int *iti=malloc(sizeof(int)*taille);
+    iti[0]=0;
+    
+
+    chemin_f(taille,tab,0,iti,position,&plaisir);
+ 
+    printf("plaisir :%d\n",plaisir);
 
    
     return (0);
+    free(iti);
     }
