@@ -73,15 +73,15 @@ int *station_de_ski(char* fname)
 }
 //permet d'afficher le tableau des plaisirs des pistes existantes 
 void voir(int taille, int tab[(taille)*(taille)]) {
-    printf("La matrice adjacente est :\n");
+   // printf("La matrice adjacente est :\n");
 
-    for (int i = 0; i < ((taille)*(taille)); i++) {
-        printf("%d ", tab[i]);
+    //for (int i = 0; i < ((taille)*(taille)); i++) {
+       // printf("%d ", tab[i]);
 
-        if ((i+1) % taille == 0) {
-            printf("\n");
-        }
-    }
+       // if ((i+1) % taille == 0) {
+        //    printf("\n");
+       // }
+   // }
 }
 
 void affichage (int taille, int *tab)

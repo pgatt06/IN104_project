@@ -24,9 +24,9 @@ int main(int argc, char* argv[]){
     }
     int *matrice = read_info(argv[1], donnees, taille, tab);
     
-//affichage de la matrice adjacente
+//affichage de la matrice adjacente enlever les commentaire dans le read_data pour afficher 
     voir(taille,matrice);
-    printf("\n");
+   // printf("\n");
 
     
 

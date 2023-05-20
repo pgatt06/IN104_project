@@ -18,6 +18,7 @@ int maxi(int *A, int n)
     return max; 
 }
 
+// algorithme de bellmann ford ( n taille de la matrice adjacente ( graph ))
 void plaisir_max_ch_sommet(int n, int graph[n*n])
 {
     
@@ -35,7 +36,7 @@ void plaisir_max_ch_sommet(int n, int graph[n*n])
     }
     plaisir[0] = 0; // plaisir de 0 à 0 est de 0
     
-
+//bellmann ford 
 for (int k=0;k<n;k++){
     for (int u = 0; u < n; u++) {
         for (int v = 0; v < n; v++) {
@@ -60,7 +61,7 @@ for (int k=0;k<n;k++){
 
 
     // Affichage des résultats
-    printf("Le plaisir maximal pour chaque sommet est :\n");
+   /* printf("Le plaisir maximal pour chaque sommet est :\n");
     for (int i = 0; i < n; i++) {
         printf("Sommet %d : ", i);
         if (plaisir[i] == INT_MIN) {
@@ -73,12 +74,15 @@ for (int k=0;k<n;k++){
             }
             printf("\n");
         }
-    }
+    }*/
     int plaisir_max =maxi(plaisir,n);
-    printf("la liste des plaisir est: ");
-    affichage(n,plaisir);
-    printf("le plaisir maximal est : %d\n",plaisir_max);
-}
+
+    //permet d'afficher tous les plaisirs du graphe 
+    //printf("la liste des plaisir est: ");
+    //affichage(n,plaisir);
+
+    printf(" %d\n",plaisir_max);
+} 
 
 /*int main()
 {
