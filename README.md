@@ -1,4 +1,6 @@
 # IN104_project
+-Projet IN104 - Ski - version_1 (ne fonctionne pas -> voir version3 )-
+-Agathe Pascal et Nastassia Bonetti- 
 
 VERSION_1 :
 
