@@ -20,31 +20,34 @@ int main(int argc, char* argv[]){
     for (int i=0; i<taille*taille;++i){
         tab[i]=0;}
     
+    // remplir la matrice adjacente 
     int *matrice = read_info(argv[1], donnees, taille, tab);
     
-//affichage de la matrice adjacente
+// affichage de la matrice adjacente enlever les commentaires dans read_data pour afficher 
     voir(taille,matrice);
-    printf("\n");
+   // printf("\n");
 
-    
+    // initialisation des variables pour la détection de cycle et du parcours du cycle 
     bool visite[taille];
     bool sur_chemin[taille];
     int chemin[taille];
     int top = 0;
     int cycle=-1;
    
-
-    trouver_cycles(taille , tab, visite, sur_chemin,top,chemin,&cycle);
-    
-    if(cycle==1){printf("SKY IS THE LIMIT\n");}
-   
-  
-    int position=0;
+   int position=0;
     int plaisir=0;
     int *iti=malloc(sizeof(int)*taille);
     iti[0]=0;
-    
 
+    //détection du cycle 
+
+    trouver_cycles(taille , tab, visite, sur_chemin,top,chemin,&cycle);
+    
+    if(cycle==1){printf("SKY IS THE LIMIT\n");
+                return(0);}
+
+    //parcours du graphe si pas de graphe 
+   
     chemin_f(taille,tab,0,iti,position,&plaisir);
  
     printf("plaisir :%d\n",plaisir);
