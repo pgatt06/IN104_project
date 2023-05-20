@@ -1,7 +1,15 @@
 # IN104_project
 groupe: Agathe PAscal-Nastassia Bonetti 
 
-plusieurs versions ont été testées (cf les deux branches du github). 
+#but du projet:
+Nous disposons d’une carte avec l’ensemble des pistes d'une station de ski et un entier qui représente le plaisir généré lorsqu'on dévale cette piste. Ce chiffre peut-être négatif si cette piste est ennuyeuse.
+
+Les croisements des pistes sont numérotés et on part de celui qui parte le numéro 0.
+
+Notre objectif est de déterminer le meilleur itinéraire possible pour la journée. En revanche rien ne nous interdit de passer plusieurs fois sur la même piste et donc de ressentir un plaisir infini. Nous pouvons aussi décider que la meilleure solution est de ne pas skier. 
+
+
+Plusieurs versions ont été testées (cf les trois branches du github). 
 Dans la version 1, il y a plusieurs codes qui fonctionnement mais sans succes final 
 Dans la version 2, un algorithme de la première version a permis l'écriture de chemin.c qui permet de déterminer le plaisir maximal d'un graphe. 
 Dans la version 3, on reprend les bases de la version 1 mais en simplifiant la recherche des plaisirs sur tous les chemins possibles. 
