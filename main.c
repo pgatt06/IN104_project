@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "read_data.h"
 #include "chemin.h"
+#include <time.h>
 
 
 
@@ -9,7 +10,7 @@
 
 
 int main(int argc, char* argv[]){
-
+clock_t begin = clock();
 
 //création de la matrice adjacente
     int *donnees= station_de_ski(argv[1]);
@@ -32,6 +33,8 @@ int main(int argc, char* argv[]){
 
     plaisir_max_ch_sommet(taille,matrice);
 
-   
+   clock_t end = clock();
+   unsigned long millis = (end -  begin) * 1000 / CLOCKS_PER_SEC;
+    printf( "Finished in %ld ms\n", millis );  
     return (0);
     }
