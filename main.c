@@ -3,10 +3,16 @@
 #include "read_data.h"
 #include "chemin.h"
 #include <time.h>
+#include <sys/resource.h>
 
-
-
-
+void printMemoryUsage() {
+    struct rusage usage;
+    if (getrusage(RUSAGE_SELF, &usage) == 0) {
+        printf("Memory usage: %ld kilobytes\n", usage.ru_maxrss);
+    } else {
+        printf("Failed to get memory usage.\n");
+    }
+}
 
 
 int main(int argc, char* argv[]){
@@ -35,6 +41,7 @@ clock_t begin = clock();
 
    clock_t end = clock();
    unsigned long millis = (end -  begin) * 1000 / CLOCKS_PER_SEC;
-    printf( "Finished in %ld ms\n", millis );  
+    printf( "Finished in %ld ms\n", millis ); 
+    printMemoryUsage(); 
     return (0);
     }
