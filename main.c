@@ -10,7 +10,7 @@
 
 
 int main(int argc, char* argv[]){
-clock_t begin = clock();
+    clock_t begin = clock();
 
 //création de la matrice adjacente
     int *donnees= station_de_ski(argv[1]);
@@ -48,6 +48,9 @@ clock_t begin = clock();
     trouver_cycles(taille , tab, visite, sur_chemin,top,chemin,&cycle);
     
     if(cycle==1){printf("SKY IS THE LIMIT\n");
+                clock_t end = clock();
+            unsigned long millis = (end -  begin) * 1000 / CLOCKS_PER_SEC;
+            printf( "Finished in %ld ms\n", millis );  
                 return(0);}
 
     //parcours du graphe si pas de graphe 
@@ -57,7 +60,7 @@ clock_t begin = clock();
     printf("plaisir :%d\n",plaisir);
     free(iti);
    
-   clock_t end = clock();
+    clock_t end = clock();
     unsigned long millis = (end -  begin) * 1000 / CLOCKS_PER_SEC;
     printf( "Finished in %ld ms\n", millis );  
     return (0);
