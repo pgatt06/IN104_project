@@ -1,12 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
 #include "read_data.h"
 #include "test_cycle.h"
 #include "chemin.h"
 
-int main(int argc, char* argv[]){
 
+
+
+int main(int argc, char* argv[]){
+clock_t begin = clock();
 
 //création de la matrice adjacente
     int *donnees= station_de_ski(argv[1]);
@@ -51,8 +55,10 @@ int main(int argc, char* argv[]){
     chemin_f(taille,tab,0,iti,position,&plaisir);
  
     printf("plaisir :%d\n",plaisir);
-
-   
-    return (0);
     free(iti);
+   
+   clock_t end = clock();
+    unsigned long millis = (end -  begin) * 1000 / CLOCKS_PER_SEC;
+    printf( "Finished in %ld ms\n", millis );  
+    return (0);
     }
