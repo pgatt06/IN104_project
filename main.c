@@ -6,8 +6,16 @@
 #include "test_cycle.h"
 #include "chemin.h"
 
+#include <sys/resource.h>
 
-
+void printMemoryUsage() {
+    struct rusage usage;
+    if (getrusage(RUSAGE_SELF, &usage) == 0) {
+        printf("Memory usage: %ld kilobytes\n", usage.ru_maxrss);
+    } else {
+        printf("Failed to get memory usage.\n");
+    }
+}
 
 int main(int argc, char* argv[]){
     clock_t begin = clock();
@@ -50,18 +58,22 @@ int main(int argc, char* argv[]){
     if(cycle==1){printf("SKY IS THE LIMIT\n");
                 clock_t end = clock();
             unsigned long millis = (end -  begin) * 1000 / CLOCKS_PER_SEC;
-            printf( "Finished in %ld ms\n", millis );  
+            printf( "Finished in %ld ms\n", millis );
+            printMemoryUsage();  
                 return(0);}
 
     //parcours du graphe si pas de graphe 
    
     chemin_f(taille,tab,0,iti,position,&plaisir);
  
-    printf("plaisir :%d\n",plaisir);
+    printf("%d\n",plaisir);
     free(iti);
    
     clock_t end = clock();
     unsigned long millis = (end -  begin) * 1000 / CLOCKS_PER_SEC;
-    printf( "Finished in %ld ms\n", millis );  
+    printf( "Finished in %ld ms\n", millis ); 
+
+    printMemoryUsage();
+
     return (0);
     }
